@@ -2,7 +2,19 @@ struct Game {
   let title: String
   let platform: Platform
   var hoursPlayed: Int
-  let completed: Bool
+  var completed: Bool
+  var playStatus: String {
+    completed ? "Completed" : "In Progress"
+  }
+  var progress: GameProgress {
+    if completed {
+      return .completed
+    } else if hoursPlayed == 0 {
+      return .notStarted
+    } else {
+      return .playing(hours: hoursPlayed)
+    }
+  }
 
   func summary() -> String {
     let gameSummary =
@@ -12,5 +24,9 @@ struct Game {
 
   mutating func addHours(_ hours: Int) {
     hoursPlayed += hours
+  }
+
+  mutating func markCompleted() {
+    completed = true
   }
 }
