@@ -1,13 +1,8 @@
 @main
 struct TinyGameList {
   static func main() {
-    let game = Game(
-      title: "Demon's Souls",
-      platform: .pc,
-      hoursPlayed: 100,
-      completed: false
-    )
+    let game = Game.newGame(title: "Silent Hill 2", platform: .pc)
 
-    print(game.progress)
+    print(game.detailedDescription())
   }
 }

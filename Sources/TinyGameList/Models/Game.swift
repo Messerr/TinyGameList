@@ -16,6 +16,18 @@ struct Game {
     }
   }
 
+  static func newGame(
+    title: String,
+    platform: Platform
+  ) -> Game {
+    return Game(
+      title: title,
+      platform: platform,
+      hoursPlayed: 0,
+      completed: false
+    )
+  }
+
   func summary() -> String {
     let gameSummary =
       "\(title) is on \(platform.displayName). You've played for \(hoursPlayed) hours and \(completed ? "you've completed it!" : "you have not completed it, boo.")"
@@ -28,5 +40,10 @@ struct Game {
 
   mutating func markCompleted() {
     completed = true
+  }
+}
+extension Game {
+  func detailedDescription() -> String {
+    return "\(title) on \(platform.displayName) - \(progress)"
   }
 }

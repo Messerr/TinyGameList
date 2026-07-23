@@ -1,8 +1,9 @@
-enum GameProgress: CustomStringConvertible {
+enum GameProgress {
   case notStarted
   case playing(hours: Int)
   case completed
-
+}
+extension GameProgress: CustomStringConvertible {
   var description: String {
     switch self {
     case .notStarted: return "Game Not Started"
