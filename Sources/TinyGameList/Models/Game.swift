@@ -16,16 +16,14 @@ struct Game {
     }
   }
 
-  static func newGame(
+  init(
     title: String,
     platform: Platform
-  ) -> Game {
-    return Game(
-      title: title,
-      platform: platform,
-      hoursPlayed: 0,
-      completed: false
-    )
+  ) {
+    self.title = title
+    self.platform = platform
+    self.hoursPlayed = 0
+    self.completed = false
   }
 
   func summary() -> String {
