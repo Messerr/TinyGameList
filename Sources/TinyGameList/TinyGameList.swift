@@ -5,16 +5,9 @@ struct TinyGameList {
       title: "Demon's Souls",
       platform: .pc,
       hoursPlayed: 100,
-      completed: true
+      completed: false
     )
 
-    switch game.progress {
-    case .notStarted:
-      print("Game not started")
-    case .completed:
-      print("Game completed")
-    case .playing(let hours):
-      print("Game in progress for \(hours) hours")
-    }
+    print(game.progress)
   }
 }
