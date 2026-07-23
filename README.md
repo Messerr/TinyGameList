@@ -1,1 +1,1 @@
-### Swift CLI to read from a list of games and print a detailed message about each
+### Swift CLI program that reads from a list of games and prints a detailed message about each
