@@ -1,3 +1,7 @@
+enum GameError: Error {
+  case emptyTitle
+}
+
 struct Game {
   let title: String
   let platform: Platform
@@ -18,12 +22,17 @@ struct Game {
 
   init(
     title: String,
-    platform: Platform
-  ) {
+    platform: Platform,
+    hoursPlayed: Int = 0,
+    completed: Bool = false
+  ) throws {
+    guard !title.isEmpty else {
+      throw GameError.emptyTitle
+    }
     self.title = title
     self.platform = platform
-    self.hoursPlayed = 0
-    self.completed = false
+    self.hoursPlayed = hoursPlayed
+    self.completed = completed
   }
 
   func summary() -> String {
